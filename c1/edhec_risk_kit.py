@@ -3,7 +3,7 @@ import pandas as pd
 
 def drawdown(return_series: pd.Series):
     """
-        Takes a time series of asset return.
+        Takes a time series of asset returns.
         returns a DataFrame with columns for the wealth index,
         the previous peaks, and the percentage drawdown
     """
@@ -95,6 +95,9 @@ def var_historic(r, level=5):
 from scipy.stats import norm
 def var_gaussian(r, level=5, modified =False):
     """
+    Returns the Parametric Gausian VaR of a Series or DataFrame
+    IF "Modified" is True, then the modified VaR is returned,
+    using the Cornish-Fisher modification
     """
     #compute the z score assuming it was GAussian
     z = norm.ppf(level/100)
